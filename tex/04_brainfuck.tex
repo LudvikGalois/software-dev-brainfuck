@@ -1,0 +1,45 @@
+\chapter{A turing tarpit called Brainfuck}
+
+Clojure has many, many features and functions built-in and we've only
+started to scratch the surface.  Brainfuck, on the other hand is
+incredibly simple.  It has either 7 or 8 commands depending on how you
+want to count them.
+
+\section{An Abstract Machine}
+
+In the last chapter, when we talked about Clojure, we didn't talk
+about the {\em abstract machine} it runs on.  Most programmers don't
+bother to separate the underlying abstract machine that their
+programming language actually talks about from the language itself.
+The underlying machine is often as complex as the language and a
+formal definition would put many to sleep.  Luckily, since Brainfuck
+is so simple, talking about the abstract machine is easy.
+
+There is a row of cells. Each cell can contain a number between 0 and
+255 (inclusive).  One of these cells is known as the ``current''
+cell.  The leftmost cell starts as the current cell.
+
+In Brainfuck there are 6 actions that can be taken, listed below. Each of these commands is represented by a single character, listed in parentheses.
+
+\begin{enumerate}
+\item ({\tt +}) The current cell can be incremented
+\item ({\tt -}) The current cell can be decremented
+\item ({\tt >}) The cell to the right of the current cell will become the new
+  current cell
+\item ({\tt <}) The cell to the left of the current cell will become the new
+  current cell
+\item ({\tt ,}) The value of the current cell is replaced by the next input value
+\item ({\tt .}) The value of the current cell is output
+\end{enumerate}
+
+The final command(s) are {\tt [} and {\tt ]}.  They always come in
+matched pairs.  The meaning of ({\tt [} is ``if the current cell is
+not zero, jump to the command after my matching {\tt ]}''. The
+meaning of {\tt ]} is ``jump to my matching {\tt [}''.
+
+% TODO
+{\em Add a bunch of examples here}
+
+\section{Character Encodings}
+
+{\em Explain why the character 0 is not number 0}

@@ -1,0 +1,46 @@
+\chapter{Programs are like onions}
+
+One way to structure a program is to have a layered architecture,
+where each layer is implemented using the layer below it, with
+business logic at the top, and the nitty-gritty real-world interface
+parts at the bottom.
+
+In the last chapter, we talked about register machines and how to
+simulate one in Clojure. But what about if we wanted to simulate one
+in Brainfuck? On the surface this sounds like a fairly substantial
+undertaking with endless hours of debugging.
+
+We reduce this Herculean task into a set of smaller, easier tasks.
+Simulating our register machine in Clojure was a breeze.  So what if
+instead of writing our simulator in Brainfuck, we wrote it in an
+easier to program in language, and then converted that to Brainfuck?
+
+\section{The Tower}
+
+Writing a more featured ``Brainfuck'' is best approached
+incrementally, adding only a handful of new features at a time, and
+using those to implement the new features.
+
+% TODO clean-up
+We're going to call this the {\tt tower}.  Each level in the tower
+will be a new language, which can be compiled to the language one
+level below. Level 0 is Brainfuck itself.
+
+Throughout this book, we'll also implement several languages which
+compile to various levels of the tower, but are not just extensions to
+Brainfuck.
+
+\section{Level 1: Removing repetition}
+
+\section{Level 2: Non-destructive reads}
+
+\section{Level 3: If Statements}
+
+\section{Level 4: From Unary to Binary}
+
+\section{Level 5: Switch Statements}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../book"
+%%% End:

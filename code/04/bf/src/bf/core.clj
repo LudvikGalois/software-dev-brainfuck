@@ -8,16 +8,21 @@
    :errored false
    :instructions (into [] instructions)})
 
-(defn finished? [{errored? :errored, instr-pointer :instr-pointer, instructions :instructions :as machine}]
+(defn finished? [{errored? :errored
+                  instr-pointer :instr-pointer
+                  instructions :instructions
+                  :as machine}]
   (or errored? (>= instr-pointer (count instructions))))
 
-(defn get-current-instruction [{instr-pointer :instr-pointer, instructions :instructions}]
+(defn get-current-instruction [{instr-pointer :instr-pointer
+                                instructions :instructions}]
   (get instructions instr-pointer))
 
 (defn get-current-cell [{cells :cells, cell-pointer :cell-pointer}]
   (get cells cell-pointer))
 
-(defn set-current-cell [{cells :cells, cell-pointer :cell-pointer :as machine} new-value]
+(defn set-current-cell [{cells :cells, cell-pointer :cell-pointer :as machine}
+                        new-value]
   (let [new-cells (assoc cells cell-pointer new-value)]
     (assoc machine :cells new-cells)))
 
